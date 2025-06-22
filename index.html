@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Kindle Native Clock</title>
+  <title>UTC−3 Clock</title>
   <style>
     body {
       font-family: sans-serif;
@@ -22,15 +22,21 @@
   </style>
 </head>
 <body>
-  <h1>Device Time</h1>
+  <h1>Time in UTC−3</h1>
   <div class="clock" id="clock">--:--:--</div>
   <div class="date" id="date">Loading date...</div>
 
   <script>
     function updateClock() {
       const now = new Date();
-      const time = now.toLocaleTimeString('pt-BR', { hour12: false });
-      const date = now.toLocaleDateString('pt-BR', {
+
+      // Adjust to UTC−3
+      const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+      const offset = -3; // UTC−3
+      const local = new Date(utc + 3600000 * offset);
+
+      const time = local.toLocaleTimeString('en-GB', { hour12: false });
+      const date = local.toLocaleDateString('en-GB', {
         weekday: 'long',
         year: 'numeric',
         month: 'long',
