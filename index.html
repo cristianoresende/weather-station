@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Live Clock - Belo Horizonte</title>
+  <title>Kindle Native Clock</title>
   <style>
     body {
       font-family: sans-serif;
@@ -22,33 +22,23 @@
   </style>
 </head>
 <body>
-  <h1>Current Time in Belo Horizonte</h1>
+  <h1>Device Time</h1>
   <div class="clock" id="clock">--:--:--</div>
   <div class="date" id="date">Loading date...</div>
 
   <script>
     function updateClock() {
       const now = new Date();
-      const optionsTime = {
-        timeZone: 'America/Sao_Paulo',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-      };
-      const optionsDate = {
-        timeZone: 'America/Sao_Paulo',
+      const time = now.toLocaleTimeString('en-GB', { hour12: false });
+      const date = now.toLocaleDateString('en-GB', {
         weekday: 'long',
         year: 'numeric',
         month: 'long',
         day: 'numeric'
-      };
+      });
 
-      const timeFormatter = new Intl.DateTimeFormat('en-GB', optionsTime);
-      const dateFormatter = new Intl.DateTimeFormat('en-GB', optionsDate);
-
-      document.getElementById('clock').textContent = timeFormatter.format(now);
-      document.getElementById('date').textContent = dateFormatter.format(now);
+      document.getElementById('clock').textContent = time;
+      document.getElementById('date').textContent = date;
     }
 
     setInterval(updateClock, 1000);
