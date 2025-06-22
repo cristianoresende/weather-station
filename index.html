@@ -1,14 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head></head>
-    <body>
-        Seconds since page loaded: <span id="time">0</span>
-        <script type="text/javascript">
-            var time = 0;
-            setInterval(function() {
-                time += 1;
-                document.getElementById("time").innerText = time;
-            }, 1000);
-        </script>
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Live Clock - Belo Horizonte</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      background-color: white;
+      color: black;
+    }
+    .clock {
+      font-size: 48px;
+      margin-top: 20px;
+    }
+    .date {
+      font-size: 24px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Current Time in Belo Horizonte</h1>
+  <div class="clock" id="clock">--:--:--</div>
+  <div class="date" id="date">Loading date...</div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const optionsTime = {
+        timeZone: 'America/Sao_Paulo',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      };
+      const optionsDate = {
+        timeZone: 'America/Sao_Paulo',
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+
+      const timeFormatter = new Intl.DateTimeFormat('en-GB', optionsTime);
+      const dateFormatter = new Intl.DateTimeFormat('en-GB', optionsDate);
+
+      document.getElementById('clock').textContent = timeFormatter.format(now);
+      document.getElementById('date').textContent = dateFormatter.format(now);
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock(); // initial call
+  </script>
+</body>
 </html>
