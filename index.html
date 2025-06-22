@@ -1,38 +1,37 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>UTC−3 Clock</title>
+  <title>UTC−3 Clock - Dark Theme</title>
   <style>
     body {
       font-family: sans-serif;
       text-align: center;
       padding-top: 50px;
-      background-color: white;
-      color: black;
+      background-color: black;
+      color: white;
     }
     .clock {
-      font-size: 98px;
+      font-size: 48px;
       margin-top: 20px;
     }
     .date {
-      font-size: 54px;
+      font-size: 24px;
       margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <h1>Time in UTC−3</h1>
+  <h1>Horário atual</h1>
   <div class="clock" id="clock">--:--:--</div>
   <div class="date" id="date">Loading date...</div>
 
   <script>
     function updateClock() {
       const now = new Date();
-
-      // Adjust to UTC−3
       const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-      const offset = -3; // UTC−3
+      const offset = -3;
       const local = new Date(utc + 3600000 * offset);
 
       const time = local.toLocaleTimeString('en-GB', { hour12: false });
@@ -48,7 +47,7 @@
     }
 
     setInterval(updateClock, 1000);
-    updateClock(); // initial call
+    updateClock();
   </script>
 </body>
 </html>
