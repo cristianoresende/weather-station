@@ -78,7 +78,8 @@
     </button>
   </div>
 
-  <h1>Horário atual</h1>
+  
+  <h1 id="greeting">Carregando saudação...</h1>
   <div class="clock" id="clock">--:--:--</div>
   <div class="date" id="date">Loading date...</div>
 
@@ -99,6 +100,8 @@
 
       document.getElementById('clock').textContent = time;
       document.getElementById('date').textContent = date;
+	  
+	  getGreeting(); 
     }
 
     function toggleTheme() {
@@ -121,6 +124,22 @@
 
     setInterval(updateClock, 1000);
     updateClock();
+	
+	function getGreeting() {
+      const now = new Date();
+      const hour = now.getHours();
+      let greeting;
+
+      if (hour < 12) {
+        greeting = "Bom dia!";
+      } else if (hour < 18) {
+        greeting = "Boa tarde!";
+      } else {
+        greeting = "Boa noite!";
+      }
+
+      document.getElementById("greeting").textContent = greeting;
+    }	
   </script>
 </body>
 </html>
