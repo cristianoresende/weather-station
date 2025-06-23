@@ -125,21 +125,25 @@
     setInterval(updateClock, 1000);
     updateClock();
 	
+	
+	
 	function getGreeting() {
       const now = new Date();
       const hour = now.getHours();
       let greeting;
 
       if (hour < 12) {
-        greeting = "Bom dia!";
+        greeting = "Good morning!";
       } else if (hour < 18) {
-        greeting = "Boa tarde!";
+        greeting = "Good afternoon!";
       } else {
-        greeting = "Boa noite!";
+        greeting = "Good evening!";
       }
 
       document.getElementById("greeting").textContent = greeting;
     }	
+	
+	
   </script>
 </body>
 </html>
