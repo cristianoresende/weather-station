@@ -98,10 +98,21 @@
         day: 'numeric'
       });
 
+	 
+
+	const onlyHour = local.toLocaleTimeString('pt-BR', { hour12: false }).split(':')[0];
+	
+	if (onlyHour < 12) {
+        greeting = "Bom dia!";
+      } else if (onlyHour < 18) {
+        greeting = "Boa tarde!";
+      } else {
+        greeting = "Boa noite!";
+      }	 
+	 
+	  document.getElementById('greeting').textContent = greeting;
       document.getElementById('clock').textContent = time;
-      document.getElementById('date').textContent = date;
-	  
-	  getGreeting(); 
+      document.getElementById('date').textContent = date;	   
     }
 
     function toggleTheme() {
@@ -123,27 +134,7 @@
     }
 
     setInterval(updateClock, 1000);
-    updateClock();
-	
-	
-	
-	function getGreeting() {
-      const now = new Date();
-      const hour = now.getHours();
-      let greeting;
-
-      if (hour < 12) {
-        greeting = "Good morning!";
-      } else if (hour < 18) {
-        greeting = "Good afternoon!";
-      } else {
-        greeting = "Good evening!";
-      }
-
-      document.getElementById("greeting").textContent = greeting;
-    }	
-	
-	
+    updateClock();	
   </script>
 </body>
 </html>
