@@ -33,14 +33,14 @@ function getWeatherIcon(code) {
         const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weathercode&timezone=auto`);
         const weatherData = await weatherRes.json();
         const temp = weatherData.current.temperature_2m;
-        const code = weatherData.current.weathercode;
-        const icon = getWeatherIcon(code);
+      
+       
 
         document.getElementById('weather').innerHTML = `
         
           <p><strong>City:</strong> ${name}, ${country}</p>
           <p><strong>Temperature:</strong> ${temp}°C</p>
-          <p><strong>Weather Code:</strong> ${code}</p>
+        
         `;
       } catch (error) {
         document.getElementById('weather').innerText = 'Error fetching weather data.';
