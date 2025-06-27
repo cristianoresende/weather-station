@@ -37,7 +37,7 @@ function getWeatherIcon(code) {
         const icon = getWeatherIcon(code);
 
         document.getElementById('weather').innerHTML = `
-          <p><span class="icon">${icon}</span></p>
+        
           <p><strong>City:</strong> ${name}, ${country}</p>
           <p><strong>Temperature:</strong> ${temp}°C</p>
           <p><strong>Weather Code:</strong> ${code}</p>
