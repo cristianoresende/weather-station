@@ -16,14 +16,14 @@ function updateClock() {
 
 	const onlyHour = local.toLocaleTimeString('pt-BR', { hour12: false }).split(':')[0];
 
-	let greeting_image = "";
+	//let greeting_image = "";
 	
 	if (onlyHour < 12) {
         greeting = "Bom dia!";
-	greeting_image ="assets/images/good_morning.png";
+	//greeting_image ="assets/images/good_morning.png";
       } else if (onlyHour < 18) {
         greeting = "Boa tarde!";
-	greeting_image ="assets/images/pikachu.png";	
+	//greeting_image ="assets/images/pikachu.png";	
       } else {
         greeting = "Boa noite!";		
       }	 
@@ -31,7 +31,7 @@ function updateClock() {
       document.getElementById('greeting').textContent = greeting;
       document.getElementById('clock').textContent = time;
       document.getElementById('date').textContent = date;	
-      document.getElementById('greetingImage').src = greeting_image;
+      //document.getElementById('greetingImage').src = greeting_image;
     }
 
     function toggleTheme() {
