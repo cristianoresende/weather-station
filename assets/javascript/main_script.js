@@ -20,11 +20,13 @@ function updateClock() {
 	
 	if (onlyHour < 12) {
         greeting = "Bom dia!";
-	greeting_image ="assets/images/pikachu.png";
+	greeting_image ="assets/images/good_morning.png";
       } else if (onlyHour < 18) {
         greeting = "Boa tarde!";
+	greeting_image ="assets/images/pikachu.png";	
       } else {
         greeting = "Boa noite!";
+	greeting_image ="assets/images/pikachu.png";	
       }	 
 	 
       document.getElementById('greeting').textContent = greeting;
