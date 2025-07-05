@@ -18,6 +18,7 @@ function updateClock() {
 	
 	if (onlyHour < 12) {
         greeting = "Bom dia!";
+	<img id="imagem" src="assets/images/pikachu.jpg" alt="Imagem do dia">
       } else if (onlyHour < 18) {
         greeting = "Boa tarde!";
       } else {
