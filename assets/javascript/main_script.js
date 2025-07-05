@@ -25,8 +25,7 @@ function updateClock() {
         greeting = "Boa tarde!";
 	greeting_image ="assets/images/pikachu.png";	
       } else {
-        greeting = "Boa noite!";
-	greeting_image ="assets/images/pikachu.png";	
+        greeting = "Boa noite!";		
       }	 
 	 
       document.getElementById('greeting').textContent = greeting;
