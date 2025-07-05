@@ -15,19 +15,22 @@ function updateClock() {
 	 
 
 	const onlyHour = local.toLocaleTimeString('pt-BR', { hour12: false }).split(':')[0];
+
+	let greeting_image = "";
 	
 	if (onlyHour < 12) {
         greeting = "Bom dia!";
-	<img id="imagem" src="assets/images/pikachu.jpg" alt="Imagem do dia">
+	greeting_image ="assets/images/pikachu.png";
       } else if (onlyHour < 18) {
         greeting = "Boa tarde!";
       } else {
         greeting = "Boa noite!";
       }	 
 	 
-	  document.getElementById('greeting').textContent = greeting;
+      document.getElementById('greeting').textContent = greeting;
       document.getElementById('clock').textContent = time;
-      document.getElementById('date').textContent = date;	   
+      document.getElementById('date').textContent = date;	
+      document.getElementById('greetingImage').src = greeting_image;
     }
 
     function toggleTheme() {
